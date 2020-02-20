@@ -1,23 +1,29 @@
 import { Router } from 'express';
-// const Router = require('express');
-import User from './app/models/User'
+
+// Controlers
+import UserController from './app/controllers/UserController';
 
 const routes = new Router();
 
 // nas operações com BD deve-se usar await
 routes.get('/', (req, res) => res.json({ pais: 'BRASIL' }));
 
-routes.get('/users', async (req, res) => {
+// teste - necessário importar model
+routes.get('/testuser', async (req, res) => {
     const user = await User.create({
         name: 'Giozingo Mongo',
-        email:'g@gmail.com',
-        password_hash:'132123123123123',
+        email: 'g@gmail.com',
+        password_hash: '132123123123123',
     });
 
     //retorna os dados do usuário
     return res.json(user);
-
 });
+
+// usando o Controller de usuário
+routes.post('/users', UserController.store); 
+ 
+
 
 
 export default routes;
