@@ -1,13 +1,12 @@
 // conexão com banco de dados
 import Sequelize from 'sequelize';
-import databaseConfig from '../config/database';
 import User from '../app/models/User';
+import databaseConfig from '../config/database';
 
 // array com todos os models da aplicação
 const models = [User];
 
-class Database {
-    
+class Database {    
     constructor() {
         this.init();
     }

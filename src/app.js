@@ -4,7 +4,6 @@
 // nova sintaxe - babel, babel-node, sucrase*
 import express from 'express';
 import routes from './routes';
-
 import './database';
 
 class App {
@@ -13,10 +12,11 @@ class App {
 
     this.middlewares();
     this.routes();
+    
   }
 
   middlewares() {
-    console.log('middleware');
+    this.server.use(express.json());
   }
 
   routes() {
@@ -25,3 +25,4 @@ class App {
 }
 
 export default new App().server;
+// module.exports = new App().server;

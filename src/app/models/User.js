@@ -1,10 +1,9 @@
-import { model, Model, Sequelize } from 'sequelize';
+import Sequelize, {Model} from 'sequelize';
 
 class User extends Model {
     // sequelize é a conexão com o BD (../database/index)
     static init(sequelize) {
-        super.init(
-        {
+        super.init({
             name: Sequelize.STRING,
             email: Sequelize.STRING,
             password_hash: Sequelize.STRING,
@@ -15,6 +14,5 @@ class User extends Model {
         });
     }
 } //User
-    
 
 export default User;
